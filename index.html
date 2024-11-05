@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Arrecadação</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Calculadora de Arrecadação da Padaria</h1>
+    
+    <label for="quantidadePoes">Quantidade de Pães vendidos: </label>
+    <input type="number" id="quantidadePoes" required><br><br>
+    
+    <label for="quantidadeBroas">Quantidade de Broas vendidas: </label>
+    <input type="number" id="quantidadeBroas" required><br><br>
+    
+    <button onclick="calcularArrecadacao()">Calcular</button>
+    
+    <h2>Resultados:</h2>
+    <p id="totalArrecadado"></p>
+    <p id="valorPoupanca"></p>
+
+    <script>
+        function calcularArrecadacao() {
+            const precoPao = 0.12;
+            const precoBroa = 1.50;
+            
+            const quantidadePoes = parseInt(document.getElementById('quantidadePoes').value);
+            const quantidadeBroas = parseInt(document.getElementById('quantidadeBroas').value);
+            
+            const totalArrecadado = (quantidadePoes * precoPao) + (quantidadeBroas * precoBroa);
+            const valorPoupanca = totalArrecadado * 0.10;
+            
+            document.getElementById('totalArrecadado').textContent = "Total arrecadado: R$ " + totalArrecadado.toFixed(2);
+            document.getElementById('valorPoupanca').textContent = "Valor a ser guardado na poupança: R$ " + valorPoupanca.toFixed(2);
+        }
+    </script>
+</body>
+</html>
